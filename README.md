@@ -14,7 +14,7 @@ The code was originally written by Wyatt Baldwin and turned into a node module b
 
 ## Installation
 
-    npm install dijkstra
+    npm install dijkstrajs
 
 ## Examples
 
