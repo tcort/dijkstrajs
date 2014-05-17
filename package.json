@@ -1,0 +1,25 @@
+{
+  "name": "dijkstrajs",
+  "version": "0.0.0",
+  "description": "A simple JavaScript implementation of Dijkstra's single-source shortest-paths algorithm.",
+  "main": "dijkstra.js",
+  "scripts": {
+    "test": "node tests.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tcort/dijkstrajs"
+  },
+  "keywords": [
+    "dijkstra",
+    "shortest",
+    "path",
+    "search",
+    "graph"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tcort/dijkstrajs/issues"
+  },
+  "homepage": "https://github.com/tcort/dijkstrajs"
+}
