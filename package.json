@@ -1,6 +1,6 @@
 {
   "name": "dijkstrajs",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "A simple JavaScript implementation of Dijkstra's single-source shortest-paths algorithm.",
   "main": "dijkstra.js",
   "scripts": {
