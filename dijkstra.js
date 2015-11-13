@@ -1,3 +1,5 @@
+'use strict';
+
 /******************************************************************************
  * Created 2008-08-19.
  *
@@ -59,24 +61,26 @@ var dijkstra = {
       // the cost of the shortest paths to any or all of those nodes as
       // necessary. v is the node across the current edge from u.
       for (v in adjacent_nodes) {
-        // Get the cost of the edge running from u to v.
-        cost_of_e = adjacent_nodes[v];
+        if (adjacent_nodes.hasOwnProperty(v)) {
+          // Get the cost of the edge running from u to v.
+          cost_of_e = adjacent_nodes[v];
 
-        // Cost of s to u plus the cost of u to v across e--this is *a*
-        // cost from s to v that may or may not be less than the current
-        // known cost to v.
-        cost_of_s_to_u_plus_cost_of_e = cost_of_s_to_u + cost_of_e;
+          // Cost of s to u plus the cost of u to v across e--this is *a*
+          // cost from s to v that may or may not be less than the current
+          // known cost to v.
+          cost_of_s_to_u_plus_cost_of_e = cost_of_s_to_u + cost_of_e;
 
-        // If we haven't visited v yet OR if the current known cost from s to
-        // v is greater than the new cost we just found (cost of s to u plus
-        // cost of u to v across e), update v's cost in the cost list and
-        // update v's predecessor in the predecessor list (it's now u).
-        cost_of_s_to_v = costs[v];
-        first_visit = (typeof costs[v] === 'undefined');
-        if (first_visit || cost_of_s_to_v > cost_of_s_to_u_plus_cost_of_e) {
-          costs[v] = cost_of_s_to_u_plus_cost_of_e;
-          open.push(v, cost_of_s_to_u_plus_cost_of_e);
-          predecessors[v] = u;
+          // If we haven't visited v yet OR if the current known cost from s to
+          // v is greater than the new cost we just found (cost of s to u plus
+          // cost of u to v across e), update v's cost in the cost list and
+          // update v's predecessor in the predecessor list (it's now u).
+          cost_of_s_to_v = costs[v];
+          first_visit = (typeof costs[v] === 'undefined');
+          if (first_visit || cost_of_s_to_v > cost_of_s_to_u_plus_cost_of_e) {
+            costs[v] = cost_of_s_to_u_plus_cost_of_e;
+            open.push(v, cost_of_s_to_u_plus_cost_of_e);
+            predecessors[v] = u;
+          }
         }
       }
     }
@@ -115,10 +119,12 @@ var dijkstra = {
     make: function (opts) {
       var T = dijkstra.PriorityQueue,
           t = {},
-          opts = opts || {},
           key;
+      opts = opts || {};
       for (key in T) {
-        t[key] = T[key];
+        if (T.hasOwnProperty(key)) {
+          t[key] = T[key];
+        }
       }
       t.queue = [];
       t.sorter = opts.sorter || T.default_sorter;
