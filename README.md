@@ -18,5 +18,5 @@ The code was originally written by Wyatt Baldwin and turned into a node module b
 
 ## Examples
 
-See `tests.js` in the sources for some example code.
+See `test/dijkstra.test.js` in the sources for some example code.
 
